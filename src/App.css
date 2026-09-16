@@ -1,0 +1,43 @@
+/* Responsive Helpers */
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Mobile Frame Simulator */
+.mobile-frame-container {
+  width: 100%;
+  max-width: 420px;
+  min-height: 844px;
+  margin: 1.5rem auto;
+  border: 14px solid #1e293b;
+  border-radius: 48px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px -15px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  position: relative;
+  background: #f8fafc;
+}
+
+.mobile-frame-notch {
+  width: 120px;
+  height: 24px;
+  background: #1e293b;
+  position: sticky;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  z-index: 9999;
+  margin-bottom: -24px;
+}

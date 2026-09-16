@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+/* LENIS SMOOTH SCROLL ENGINE */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+:root {
+  /* ARCHITECTURAL ATELIER LUXURY PALETTE */
+  --background: 43 24% 97%; /* #faf9f5 Warm Linen Alabaster */
+  --foreground: 30 5% 8%;   /* #141312 Deep Caviar Obsidian */
+
+  --card: 40 18% 95%;       /* #f5f4ee Muted Linen Card */
+  --card-foreground: 30 5% 8%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 30 5% 8%;
+
+  --primary: 30 5% 8%;
+  --primary-foreground: 43 24% 97%;
+
+  --secondary: 40 15% 92%;  /* #ebe8df Warm Sand */
+  --secondary-foreground: 30 5% 8%;
+
+  --muted: 40 12% 90%;
+  --muted-foreground: 30 4% 40%; /* #6b665f Warm Taupe */
+
+  --accent: 40 15% 92%;
+  --accent-foreground: 30 5% 8%;
+
+  --destructive: 0 74% 42%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 40 16% 88%;     /* #e7e4dc Delicate Stone */
+  --input: 40 16% 88%;
+  --ring: 30 5% 8%;
+
+  --radius: 0px; /* Crisp architectural rectilinear lines */
+
+  /* Dedicated Atelier Accent Tokens */
+  --cypress-forest: #13402e;
+  --cypress-light: #eaf3ee;
+  --bronze-gold: #b89558;
+  --warm-linen: #faf9f5;
+  --caviar-black: #141312;
+  --stone-divider: #e7e4dc;
+}
+
+* {
+  border-color: #e7e4dc;
+}
+
+body {
+  background-color: #faf9f5;
+  color: #141312;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* TYPOGRAPHY TOKENS */
+.font-serif-luxury {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.018em;
+}
+
+.font-editorial {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Hide scrollbar for clean horizontal swipe on mobile */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Pulsing Hotspot Marker Animation */
+@keyframes hotspot-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(20, 19, 18, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 12px rgba(20, 19, 18, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(20, 19, 18, 0);
+  }
+}
+
+.hotspot-pin {
+  animation: hotspot-pulse 2.2s infinite cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Smooth Image hover zoom */
+.hover-zoom-img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-zoom-img:hover {
+  transform: scale(1.05);
+}
+
+/* Mobile Safe Area helper */
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
