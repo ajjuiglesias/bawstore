@@ -179,25 +179,27 @@ export function ProductShowcase({
               <div className="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 flex items-center gap-2">
                 <button
                   onClick={() => setIsWishlisted(!isWishlisted)}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-md border border-[#e7e4dc] flex items-center justify-center text-[#141312] hover:text-[#a82626] transition-all shadow-sm cursor-pointer"
+                  className={`btn-press w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-md border border-[#e7e4dc] flex items-center justify-center text-[#141312] hover:text-[#a82626] transition-all shadow-sm cursor-pointer hover:scale-110 active:scale-90 ${
+                    isWishlisted ? "animate-badge-pop" : ""
+                  }`}
                   title="Wishlist"
                   aria-label="Toggle Wishlist"
                 >
                   <Heart
-                    className={`w-4 h-4 ${
+                    className={`w-4 h-4 transition-colors ${
                       isWishlisted ? "fill-[#a82626] text-[#a82626]" : ""
                     }`}
                   />
                 </button>
                 <button
                   onClick={handleShare}
-                  className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-md border border-[#e7e4dc] flex items-center justify-center text-[#141312] hover:text-black transition-all shadow-sm relative cursor-pointer"
+                  className="btn-press w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white/90 backdrop-blur-md border border-[#e7e4dc] flex items-center justify-center text-[#141312] hover:text-black transition-all shadow-sm relative cursor-pointer hover:scale-110 active:scale-90"
                   title="Share"
                   aria-label="Share product"
                 >
                   <Share2 className="w-4 h-4" />
                   {copiedLink && (
-                    <span className="absolute -bottom-8 right-0 bg-[#141312] text-white text-[10px] font-medium px-2 py-1 rounded shadow-lg whitespace-nowrap">
+                    <span className="absolute -bottom-8 right-0 bg-[#141312] text-white text-[10px] font-medium px-2 py-1 rounded shadow-lg whitespace-nowrap animate-in fade-in zoom-in-95 duration-150">
                       Link copied!
                     </span>
                   )}
@@ -234,9 +236,9 @@ export function ProductShowcase({
                   <button
                     key={idx}
                     onClick={() => setSelectedImage(img)}
-                    className={`w-16 h-16 sm:w-20 sm:h-20 bg-[#f4f1ea] border p-1.5 flex-shrink-0 transition-all cursor-pointer ${
+                    className={`btn-press w-16 h-16 sm:w-20 sm:h-20 bg-[#f4f1ea] border p-1.5 flex-shrink-0 transition-all cursor-pointer hover:scale-105 active:scale-95 ${
                       selectedImage === img
-                        ? "border-[#141312] shadow-sm ring-1 ring-[#141312]"
+                        ? "border-[#141312] shadow-sm ring-2 ring-[#141312] scale-105"
                         : "border-[#e7e4dc] hover:border-[#141312]/40 opacity-70 hover:opacity-100"
                     }`}
                   >
@@ -353,18 +355,18 @@ export function ProductShowcase({
                       <div
                         key={bundle.id}
                         onClick={() => setSelectedBundle(bundle.id)}
-                        className={`p-3 sm:p-3.5 border transition-all cursor-pointer flex items-center justify-between gap-3 ${
+                        className={`card-lift p-3 sm:p-3.5 border transition-all duration-300 cursor-pointer flex items-center justify-between gap-3 ${
                           isSelected
-                            ? "border-[#141312] bg-white shadow-sm ring-1 ring-[#141312]"
-                            : "border-[#e7e4dc] hover:border-[#141312]/40 bg-[#f9f7f2]"
+                            ? "border-[#141312] bg-white shadow-md ring-1 ring-[#141312]"
+                            : "border-[#e7e4dc] hover:border-[#141312] bg-[#f9f7f2] hover:bg-white"
                         }`}
                       >
                         <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
                           {/* Radio Indicator */}
                           <div
-                            className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all ${
+                            className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                               isSelected
-                                ? "border-[#141312] bg-[#141312]"
+                                ? "border-[#141312] bg-[#141312] scale-110"
                                 : "border-[#8c867e] bg-white"
                             }`}
                           >
@@ -380,7 +382,7 @@ export function ProductShowcase({
                               </span>
                               {bundle.tag && (
                                 <span
-                                  className={`text-[8px] sm:text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 text-white ${
+                                  className={`text-[8px] sm:text-[9px] font-bold uppercase tracking-wider px-1.5 py-0.5 text-white shadow-sm ${
                                     bundle.recommended ? "bg-[#a82626]" : "bg-[#141312]"
                                   }`}
                                 >
@@ -426,14 +428,16 @@ export function ProductShowcase({
                       <button
                         key={color.name}
                         onClick={() => setSelectedColor(color.name)}
-                        className={`flex items-center gap-2 px-3 py-1.5 border text-xs transition-all cursor-pointer ${
+                        className={`btn-press flex items-center gap-2 px-3 py-1.5 border text-xs transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95 ${
                           isSelected
-                            ? "border-[#141312] bg-[#141312] text-white font-bold shadow-sm"
-                            : "border-[#e7e4dc] hover:border-[#141312]/40 bg-white text-[#141312]"
+                            ? "border-[#141312] bg-[#141312] text-white font-bold shadow-sm ring-1 ring-[#141312]"
+                            : "border-[#e7e4dc] hover:border-[#141312] bg-white text-[#141312]"
                         }`}
                       >
                         <span
-                          className="w-3.5 h-3.5 rounded-full border border-black/15 flex-shrink-0"
+                          className={`w-3.5 h-3.5 rounded-full border border-black/15 flex-shrink-0 transition-transform duration-200 ${
+                            isSelected ? "scale-110 ring-1 ring-white" : ""
+                          }`}
                           style={{ backgroundColor: color.value }}
                         />
                         <span>{color.name}</span>
@@ -450,10 +454,10 @@ export function ProductShowcase({
                 <label className="block text-xs font-bold uppercase tracking-wider text-[#141312]">
                   Quantity
                 </label>
-                <div className="inline-flex items-center border border-[#dcd8cf] bg-white">
+                <div className="inline-flex items-center border border-[#dcd8cf] bg-white shadow-sm">
                   <button
                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                    className="w-10 h-10 flex items-center justify-center text-[#141312] hover:bg-[#f5f3ec] text-sm font-bold border-r border-[#dcd8cf] cursor-pointer"
+                    className="btn-press w-10 h-10 flex items-center justify-center text-[#141312] hover:bg-[#141312] hover:text-white text-sm font-bold border-r border-[#dcd8cf] transition-colors cursor-pointer"
                     aria-label="Decrease quantity"
                   >
                     -
@@ -463,7 +467,7 @@ export function ProductShowcase({
                   </span>
                   <button
                     onClick={() => setQuantity((q) => Math.min(product.stock, q + 1))}
-                    className="w-10 h-10 flex items-center justify-center text-[#141312] hover:bg-[#f5f3ec] text-sm font-bold border-l border-[#dcd8cf] cursor-pointer"
+                    className="btn-press w-10 h-10 flex items-center justify-center text-[#141312] hover:bg-[#141312] hover:text-white text-sm font-bold border-l border-[#dcd8cf] transition-colors cursor-pointer"
                     aria-label="Increase quantity"
                   >
                     +
@@ -477,24 +481,24 @@ export function ProductShowcase({
               {/* COD Primary Action */}
               <button
                 onClick={() => handleAddToCart(true)}
-                className="w-full min-h-[50px] bg-[#13402e] hover:bg-[#0c2a1e] text-white py-3.5 sm:py-4 px-5 font-bold text-xs sm:text-sm uppercase tracking-widest shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2.5 cursor-pointer"
+                className="btn-press group relative overflow-hidden w-full min-h-[50px] bg-[#13402e] hover:bg-[#0c2a1e] text-white py-3.5 sm:py-4 px-5 font-bold text-xs sm:text-sm uppercase tracking-widest shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer"
               >
-                <Banknote className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-200" />
+                <Banknote className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-200 transition-transform duration-300 group-hover:scale-110" />
                 <span>Express Order — Pay Cash on Delivery (COD)</span>
               </button>
 
               {/* Add to Bag Secondary Action */}
               <button
                 onClick={() => handleAddToCart(false)}
-                className="w-full min-h-[46px] bg-[#141312] hover:bg-[#2b2825] text-white py-3 sm:py-3.5 px-5 font-bold text-xs uppercase tracking-widest transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
+                className="btn-press group w-full min-h-[46px] bg-[#141312] hover:bg-[#2b2825] text-white py-3 sm:py-3.5 px-5 font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0"
               >
-                <ShoppingBag className="w-4 h-4" />
+                <ShoppingBag className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                 <span>Add to Shopping Bag</span>
               </button>
             </div>
 
             {/* Zero Risk Assurance Banner */}
-            <div className="p-3 bg-[#eaf3ee] border border-[#c4ded0] text-[11px] text-[#13402e] flex items-start gap-2.5">
+            <div className="p-3 bg-[#eaf3ee] border border-[#c4ded0] text-[11px] text-[#13402e] flex items-start gap-2.5 transition-colors">
               <CheckCircle2 className="w-4 h-4 text-[#13402e] flex-shrink-0 mt-0.5" />
               <span>
                 <strong>Zero upfront risk:</strong> Inspect package with courier upon delivery and pay cash only when fully satisfied.

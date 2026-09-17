@@ -44,7 +44,7 @@ export function HongoHeader({ onOpenCart, cartCount }: HongoHeaderProps) {
         <div className="flex items-center gap-3 sm:gap-4">
           <button
             onClick={() => setMobileMenuOpen(true)}
-            className="lg:hidden p-1.5 text-[#141312] hover:text-[#57534e] transition-colors focus:outline-none"
+            className="lg:hidden p-1.5 text-[#141312] hover:text-[#57534e] hover:scale-105 active:scale-95 transition-all focus:outline-none"
             aria-label="Open Navigation Menu"
           >
             <Menu className="w-5 h-5 stroke-[1.8]" />
@@ -52,69 +52,70 @@ export function HongoHeader({ onOpenCart, cartCount }: HongoHeaderProps) {
 
           <a
             href="#"
-            className="font-serif-luxury text-2xl sm:text-[26px] font-black tracking-[0.2em] text-[#141312] uppercase select-none"
+            className="font-serif-luxury text-2xl sm:text-[26px] font-black tracking-[0.2em] hover:tracking-[0.24em] text-[#141312] uppercase select-none transition-all duration-300"
           >
             BAW
           </a>
         </div>
 
-        {/* Center: Desktop Navigation Links */}
+        {/* Center: Desktop Navigation Links with Smooth Animated Underlines */}
         <nav className="hidden lg:flex items-center gap-7 xl:gap-9 text-[12px] font-semibold tracking-widest uppercase text-[#57534e]">
           <a
             href="#"
-            className="text-[#141312] border-b-2 border-[#141312] pb-0.5"
+            className="text-[#141312] nav-link-anim active"
           >
             Home
           </a>
           <a
             href="#"
-            className="hover:text-[#141312] transition-colors"
+            className="hover:text-[#141312] nav-link-anim transition-colors"
           >
             Modular Storage
           </a>
           <a
             href="#"
-            className="hover:text-[#141312] transition-colors"
+            className="hover:text-[#141312] nav-link-anim transition-colors"
           >
             Lounge Chairs
           </a>
           <a
             href="#"
-            className="hover:text-[#141312] transition-colors"
+            className="hover:text-[#141312] nav-link-anim transition-colors"
           >
             Sneaker Crates
           </a>
           <a
             href="#"
-            className="hover:text-[#141312] transition-colors"
+            className="hover:text-[#141312] nav-link-anim transition-colors"
           >
             Smart Tables
           </a>
           <a
             href="#"
-            className="text-[#a82626] font-bold hover:text-[#881e1e] transition-colors flex items-center gap-1"
+            className="text-[#a82626] font-bold hover:text-[#881e1e] nav-link-anim transition-colors flex items-center gap-1.5 group"
           >
-            Buy 3 + 1 Deals
+            <span>Buy 3 + 1 Deals</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#a82626] group-hover:scale-125 transition-transform" />
           </a>
         </nav>
 
-        {/* Right: Quick Utility Icons */}
+        {/* Right: Quick Utility Icons with Tactile Micro-Interactions */}
         <div className="flex items-center gap-3 sm:gap-5 text-[#141312]">
           {/* Search Toggle */}
           <div className="relative">
             {searchOpen ? (
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center bg-white border border-[#e7e4dc] px-2.5 py-1.5 shadow-lg w-48 sm:w-64 z-50">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center bg-white border border-[#141312] px-3 py-1.5 shadow-xl w-52 sm:w-68 z-50 animate-in fade-in zoom-in-95 duration-200">
                 <input
                   type="text"
                   placeholder="Search collections..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
-                  className="w-full text-xs text-[#141312] focus:outline-none bg-transparent"
+                  className="w-full text-xs text-[#141312] placeholder-[#8c867e] focus:outline-none bg-transparent"
                 />
                 <button
                   onClick={() => setSearchOpen(false)}
-                  className="text-[#6b665f] hover:text-[#141312] ml-1"
+                  className="text-[#6b665f] hover:text-[#141312] hover:scale-110 active:scale-90 transition-transform ml-1.5"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -122,7 +123,7 @@ export function HongoHeader({ onOpenCart, cartCount }: HongoHeaderProps) {
             ) : (
               <button
                 onClick={() => setSearchOpen(true)}
-                className="hover:text-[#6b665f] transition-colors p-1"
+                className="hover:text-[#6b665f] hover:scale-110 hover:-translate-y-0.5 active:scale-95 transition-all p-1 cursor-pointer"
                 title="Search Collections"
               >
                 <Search className="w-[18px] h-[18px] stroke-[1.8]" />
@@ -131,18 +132,18 @@ export function HongoHeader({ onOpenCart, cartCount }: HongoHeaderProps) {
           </div>
 
           <button
-            className="hidden sm:block hover:text-[#6b665f] transition-colors p-1"
+            className="hidden sm:block hover:text-[#6b665f] hover:scale-110 hover:-translate-y-0.5 active:scale-95 transition-all p-1 cursor-pointer"
             title="Account"
           >
             <User className="w-[18px] h-[18px] stroke-[1.8]" />
           </button>
 
           <button
-            className="hidden sm:block hover:text-[#6b665f] transition-colors relative p-1"
+            className="hidden sm:block hover:text-[#6b665f] hover:scale-110 hover:-translate-y-0.5 active:scale-95 transition-all relative p-1 cursor-pointer group"
             title="Saved Wishlist"
           >
-            <Heart className="w-[18px] h-[18px] stroke-[1.8]" />
-            <span className="absolute -top-1 -right-1 bg-[#141312] text-white text-[8px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center">
+            <Heart className="w-[18px] h-[18px] stroke-[1.8] group-hover:text-[#a82626] transition-colors" />
+            <span className="absolute -top-1 -right-1 bg-[#141312] text-white text-[8px] font-bold w-3.5 h-3.5 rounded-full flex items-center justify-center transition-transform group-hover:scale-110">
               0
             </span>
           </button>
@@ -150,11 +151,14 @@ export function HongoHeader({ onOpenCart, cartCount }: HongoHeaderProps) {
           {/* Cart Drawer Trigger */}
           <button
             onClick={onOpenCart}
-            className="hover:text-[#6b665f] transition-colors relative flex items-center p-1 cursor-pointer"
+            className="hover:text-[#6b665f] hover:scale-105 hover:-translate-y-0.5 active:scale-95 transition-all relative flex items-center p-1.5 cursor-pointer group"
             title="Shopping Bag"
           >
-            <ShoppingBag className="w-[19px] h-[19px] stroke-[1.8]" />
-            <span className="absolute -top-1 -right-1.5 bg-[#a82626] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">
+            <ShoppingBag className="w-[19px] h-[19px] stroke-[1.8] group-hover:stroke-[2]" />
+            <span
+              key={cartCount}
+              className="absolute -top-1 -right-1 bg-[#a82626] text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold animate-badge-pop shadow-sm"
+            >
               {cartCount}
             </span>
           </button>

@@ -35,41 +35,41 @@ export function HongoHero({ onExplore }: HongoHeroProps) {
             <div className="pt-2 sm:pt-4 flex items-center gap-4">
               <button
                 onClick={onExplore}
-                className="bg-[#141312] hover:bg-[#2b2825] text-white text-[11px] sm:text-xs font-bold uppercase tracking-widest px-7 sm:px-9 py-3.5 sm:py-4 transition-all shadow-md inline-flex items-center gap-3 cursor-pointer"
+                className="btn-press group bg-[#141312] hover:bg-[#2b2825] text-white text-[11px] sm:text-xs font-bold uppercase tracking-widest px-7 sm:px-9 py-3.5 sm:py-4 transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 inline-flex items-center gap-3 cursor-pointer"
               >
                 <span>Explore Collection</span>
-                <span>&rarr;</span>
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
               </button>
             </div>
 
-            {/* Slider Controls */}
+            {/* Slider Controls with tactile micro-interactions */}
             <div className="pt-6 sm:pt-10 flex items-center">
-              <div className="inline-flex items-center border border-[#dcd8cf] bg-white/80 backdrop-blur-sm text-[#141312]">
+              <div className="inline-flex items-center border border-[#dcd8cf] bg-white/80 backdrop-blur-sm text-[#141312] shadow-sm">
                 <button
                   onClick={onExplore}
-                  className="px-3.5 py-2 hover:bg-[#f2efe9] border-r border-[#dcd8cf] text-xs font-bold cursor-pointer"
+                  className="group px-4 py-2 hover:bg-[#141312] hover:text-white border-r border-[#dcd8cf] text-xs font-bold transition-colors cursor-pointer"
                   aria-label="Previous slide"
                 >
-                  &larr;
+                  <span className="inline-block transition-transform duration-200 group-hover:-translate-x-0.5">&larr;</span>
                 </button>
                 <button
                   onClick={onExplore}
-                  className="px-3.5 py-2 hover:bg-[#f2efe9] text-xs font-bold cursor-pointer"
+                  className="group px-4 py-2 hover:bg-[#141312] hover:text-white text-xs font-bold transition-colors cursor-pointer"
                   aria-label="Next slide"
                 >
-                  &rarr;
+                  <span className="inline-block transition-transform duration-200 group-hover:translate-x-0.5">&rarr;</span>
                 </button>
               </div>
             </div>
           </div>
 
-          {/* Right Showcase Product Image */}
-          <div className="lg:col-span-6 flex justify-center lg:justify-end relative">
-            <div className="relative w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[520px] aspect-square flex items-center justify-center">
+          {/* Right Showcase Product Image with subtle hover dynamics */}
+          <div className="lg:col-span-6 flex justify-center lg:justify-end relative group">
+            <div className="relative w-full max-w-[340px] sm:max-w-[440px] lg:max-w-[520px] aspect-square flex items-center justify-center animate-float-gentle">
               <img
                 src="/images/hongo-hero-chair.jpg"
                 alt="Comfort Armchair"
-                className="w-full h-auto object-contain drop-shadow-2xl hover-zoom-img"
+                className="w-full h-auto object-contain drop-shadow-[0_25px_35px_rgba(0,0,0,0.14)] hover-zoom-img"
               />
             </div>
           </div>

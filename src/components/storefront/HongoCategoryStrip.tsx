@@ -84,20 +84,27 @@ export function HongoCategoryStrip({ activeCat, onSelectCat }: HongoCategoryStri
               <button
                 key={cat.id}
                 onClick={() => onSelectCat(cat.id)}
-                className={`flex-shrink-0 w-28 sm:w-auto flex flex-col items-center justify-center p-4 sm:p-5 border transition-all duration-200 group cursor-pointer ${
+                className={`btn-press flex-shrink-0 w-28 sm:w-auto flex flex-col items-center justify-center p-4 sm:p-5 border transition-all duration-300 group cursor-pointer relative overflow-hidden ${
                   isActive
-                    ? "border-[#141312] bg-[#f3f0e8] shadow-sm"
-                    : "border-[#e7e4dc] bg-white hover:border-[#141312]/40 hover:bg-[#f6f5f0]"
+                    ? "border-[#141312] bg-[#f1eee6] shadow-md ring-1 ring-[#141312] -translate-y-1"
+                    : "border-[#e7e4dc] bg-white hover:border-[#141312] hover:bg-[#f8f7f2] hover:-translate-y-1 hover:shadow-md"
                 }`}
               >
+                {/* Active Top Accent Line */}
+                {isActive && (
+                  <div className="absolute top-0 inset-x-0 h-0.5 bg-[#141312] animate-in fade-in duration-200" />
+                )}
+
                 <div
-                  className={`mb-2 sm:mb-3 transition-transform duration-300 group-hover:-translate-y-0.5 ${
-                    isActive ? "text-[#141312]" : "text-[#6b665f] group-hover:text-[#141312]"
+                  className={`mb-2 sm:mb-3 transition-transform duration-300 ease-out group-hover:-translate-y-1 group-hover:scale-110 ${
+                    isActive ? "text-[#141312] scale-105" : "text-[#6b665f] group-hover:text-[#141312]"
                   }`}
                 >
                   {cat.icon}
                 </div>
-                <span className="text-[11px] sm:text-xs font-bold tracking-widest uppercase text-[#141312]">
+                <span className={`text-[11px] sm:text-xs font-bold tracking-widest uppercase transition-colors duration-200 ${
+                  isActive ? "text-[#141312]" : "text-[#57534e] group-hover:text-[#141312]"
+                }`}>
                   {cat.label}
                 </span>
               </button>

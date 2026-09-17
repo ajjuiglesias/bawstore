@@ -17,7 +17,7 @@ export function HongoDualBanners({ onSelect }: HongoDualBannersProps) {
           {/* Left Sage Green Banner: BAW Modular Cabinet */}
           <div
             onClick={() => onSelect(getProduct("baw-cabinet-pro-5"))}
-            className="bg-[#dbe6df] p-6 sm:p-10 relative overflow-hidden flex items-center justify-between cursor-pointer group min-h-[320px] sm:min-h-[380px] border border-[#c9dad0]"
+            className="card-lift bg-[#dbe6df] p-6 sm:p-10 relative overflow-hidden flex items-center justify-between cursor-pointer group min-h-[320px] sm:min-h-[380px] border border-[#c9dad0] hover:border-[#b0c6b8]"
           >
             <div className="space-y-3 sm:space-y-4 max-w-[200px] sm:max-w-[260px] z-10 text-left">
               <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-[#4f6456] uppercase">
@@ -29,8 +29,9 @@ export function HongoDualBanners({ onSelect }: HongoDualBannersProps) {
                 5-tier cabinet
               </h3>
               <div className="pt-1 sm:pt-2">
-                <button className="bg-[#141312] hover:bg-[#2b2825] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-5 sm:px-7 py-3 transition-colors cursor-pointer">
-                  Explore Cabinet
+                <button className="btn-press group/btn bg-[#141312] hover:bg-[#2b2825] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-5 sm:px-7 py-3 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer">
+                  <span>Explore Cabinet</span>
+                  <span className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1">&rarr;</span>
                 </button>
               </div>
             </div>
@@ -47,7 +48,7 @@ export function HongoDualBanners({ onSelect }: HongoDualBannersProps) {
           {/* Right Pale Blue Banner: BAW Cloud Recliner */}
           <div
             onClick={() => onSelect(getProduct("baw-ergo-lounge-chair"))}
-            className="bg-[#dae5ed] p-6 sm:p-10 relative overflow-hidden flex items-center justify-between cursor-pointer group min-h-[320px] sm:min-h-[380px] border border-[#c7d7e2]"
+            className="card-lift bg-[#dae5ed] p-6 sm:p-10 relative overflow-hidden flex items-center justify-between cursor-pointer group min-h-[320px] sm:min-h-[380px] border border-[#c7d7e2] hover:border-[#adc4d4]"
           >
             <div className="space-y-3 sm:space-y-4 max-w-[200px] sm:max-w-[260px] z-10 text-left">
               <span className="text-[10px] sm:text-[11px] font-bold tracking-[0.2em] text-[#4d6170] uppercase">
@@ -59,8 +60,9 @@ export function HongoDualBanners({ onSelect }: HongoDualBannersProps) {
                 lounge chair
               </h3>
               <div className="pt-1 sm:pt-2">
-                <button className="bg-[#141312] hover:bg-[#2b2825] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-5 sm:px-7 py-3 transition-colors cursor-pointer">
-                  Explore Recliner
+                <button className="btn-press group/btn bg-[#141312] hover:bg-[#2b2825] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-widest px-5 sm:px-7 py-3 transition-all duration-300 shadow-sm hover:shadow-md hover:-translate-y-0.5 inline-flex items-center gap-2 cursor-pointer">
+                  <span>Explore Recliner</span>
+                  <span className="inline-block transition-transform duration-300 group-hover/btn:translate-x-1">&rarr;</span>
                 </button>
               </div>
             </div>

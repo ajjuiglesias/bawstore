@@ -25,11 +25,11 @@ export function HongoFooter({ onSwitchToAdmin }: HongoFooterProps = {}) {
               <div>Email: <span className="text-[#141312] font-semibold">support@baw.co.il</span></div>
             </div>
             <div className="flex items-center gap-3 pt-2 text-[#6b665f]">
-              <a href="#" className="hover:text-[#141312] transition-colors">Facebook</a>
+              <a href="#" className="hover:text-[#141312] hover:-translate-y-0.5 transition-all">Facebook</a>
               <span>•</span>
-              <a href="#" className="hover:text-[#141312] transition-colors">Pinterest</a>
+              <a href="#" className="hover:text-[#141312] hover:-translate-y-0.5 transition-all">Pinterest</a>
               <span>•</span>
-              <a href="#" className="hover:text-[#141312] transition-colors">Instagram</a>
+              <a href="#" className="hover:text-[#141312] hover:-translate-y-0.5 transition-all">Instagram</a>
             </div>
           </div>
 
@@ -39,11 +39,11 @@ export function HongoFooter({ onSwitchToAdmin }: HongoFooterProps = {}) {
               Collections
             </h4>
             <ul className="space-y-2 text-[12px] text-[#6b665f]">
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Modular Folding Cabinets</a></li>
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Cloud 360° Recliners</a></li>
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Pro-Display Sneaker Crates</a></li>
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Smart Charging Tables</a></li>
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Curved Wood Armchairs</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Modular Folding Cabinets</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Cloud 360° Recliners</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Pro-Display Sneaker Crates</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Smart Charging Tables</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Curved Wood Armchairs</a></li>
             </ul>
           </div>
 
@@ -53,17 +53,18 @@ export function HongoFooter({ onSwitchToAdmin }: HongoFooterProps = {}) {
               Customer Care
             </h4>
             <ul className="space-y-2 text-[12px] text-[#6b665f]">
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Cash on Delivery (COD) Guide</a></li>
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Express 48h Courier Dispatch</a></li>
-              <li><a href="#" className="hover:text-[#141312] transition-colors">30-Day In-Home Guarantee</a></li>
-              <li><a href="#" className="hover:text-[#141312] transition-colors">Assembly & Care Instructions</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Cash on Delivery (COD) Guide</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Express 48h Courier Dispatch</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">30-Day In-Home Guarantee</a></li>
+              <li><a href="#" className="hover:text-[#141312] hover:translate-x-1 transition-all inline-block">Assembly & Care Instructions</a></li>
               {onSwitchToAdmin && (
                 <li>
                   <button
                     onClick={onSwitchToAdmin}
-                    className="text-[#8c867e] hover:text-[#141312] font-semibold transition-colors cursor-pointer"
+                    className="group text-[#8c867e] hover:text-[#141312] font-semibold transition-colors cursor-pointer inline-flex items-center gap-1"
                   >
-                    Merchant Admin OS &rarr;
+                    <span>Merchant Admin OS</span>
+                    <span className="transition-transform duration-200 group-hover:translate-x-1">&rarr;</span>
                   </button>
                 </li>
               )}
@@ -80,14 +81,14 @@ export function HongoFooter({ onSwitchToAdmin }: HongoFooterProps = {}) {
             </p>
 
             {/* Input with submit arrow */}
-            <form onSubmit={(e) => e.preventDefault()} className="flex items-center border-b border-[#141312] pb-1">
+            <form onSubmit={(e) => e.preventDefault()} className="group/form flex items-center border-b border-[#141312] pb-1">
               <input
                 type="email"
                 placeholder="Enter your email"
                 className="w-full text-xs text-[#141312] placeholder-[#8c867e] bg-transparent focus:outline-none py-1"
               />
-              <button type="submit" className="text-[#141312] hover:text-black pl-2 cursor-pointer" title="Subscribe">
-                <ArrowRight className="w-4 h-4" />
+              <button type="submit" className="text-[#141312] hover:text-black pl-2 cursor-pointer transition-transform duration-200 hover:scale-110 active:scale-90" title="Subscribe">
+                <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover/form:translate-x-1" />
               </button>
             </form>
 

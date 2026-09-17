@@ -17,7 +17,7 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
           {/* Left Large Bento Card: Curved Ash Wood Chair */}
           <div
             onClick={() => onSelectProduct(getProduct("baw-curved-chair"))}
-            className="lg:col-span-6 bg-[#dbe3e9] p-6 sm:p-10 relative overflow-hidden flex flex-col justify-between cursor-pointer group min-h-[420px] sm:min-h-[520px] border border-[#cbd5df]"
+            className="card-lift lg:col-span-6 bg-[#dbe3e9] p-6 sm:p-10 relative overflow-hidden flex flex-col justify-between cursor-pointer group min-h-[420px] sm:min-h-[520px] border border-[#cbd5df] hover:border-[#a8b8c5]"
           >
             {/* Top Typography Header */}
             <div className="relative z-10 text-left">
@@ -37,8 +37,8 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
                 className="w-full max-w-[260px] sm:max-w-[340px] h-auto object-contain drop-shadow-xl hover-zoom-img"
               />
 
-              {/* 30% Off Circular Badge */}
-              <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-8 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white text-[#141312] flex flex-col items-center justify-center shadow-lg border border-[#e7e4dc]">
+              {/* 30% Off Circular Badge with tactile tilt */}
+              <div className="absolute bottom-2 right-2 sm:bottom-6 sm:right-8 w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white text-[#141312] flex flex-col items-center justify-center shadow-lg border border-[#e7e4dc] transition-transform duration-300 ease-out group-hover:rotate-6 group-hover:scale-110">
                 <span className="font-extrabold text-base sm:text-lg leading-none">30%</span>
                 <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-widest text-[#6b665f]">
                   OFF
@@ -47,8 +47,9 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
             </div>
 
             <div className="relative z-10 text-left">
-              <span className="text-xs font-bold tracking-widest uppercase text-[#141312] border-b-2 border-[#141312] pb-0.5 group-hover:border-black">
-                Shop Collection &rarr;
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-[#141312] border-b-2 border-[#141312] pb-0.5 group-hover:border-black">
+                <span>Shop Collection</span>
+                <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
               </span>
             </div>
           </div>
@@ -58,9 +59,9 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
             {/* Tile 1: BAW FlexiDesk Table */}
             <div
               onClick={() => onSelectProduct(getProduct("baw-flexi-desk"))}
-              className="bg-[#f5f1ea] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#e8e2d8] hover:border-[#141312]/30"
+              className="card-lift bg-[#f5f1ea] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#e8e2d8] hover:border-[#141312] hover:bg-[#faf7f2]"
             >
-              <div className="absolute top-3.5 right-3.5 bg-[#141312] text-white text-[9px] font-bold uppercase px-2 py-0.5 tracking-wider">
+              <div className="absolute top-3.5 right-3.5 bg-[#141312] text-white text-[9px] font-bold uppercase px-2 py-0.5 tracking-wider shadow-sm">
                 Hot Deal
               </div>
 
@@ -73,7 +74,7 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
               </div>
 
               <div className="text-center space-y-0.5">
-                <div className="text-xs font-bold text-[#141312]">BAW FlexiDesk Table</div>
+                <div className="text-xs font-bold text-[#141312] group-hover:text-black transition-colors">BAW FlexiDesk Table</div>
                 <div className="text-[11px] text-[#6b665f]">Starting from $85.00</div>
               </div>
             </div>
@@ -81,7 +82,7 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
             {/* Tile 2: BAW Cloud Recliner & Ottoman */}
             <div
               onClick={() => onSelectProduct(getProduct("baw-ergo-lounge-chair"))}
-              className="bg-[#f0ebe3] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#ded7cd] hover:border-[#141312]/30"
+              className="card-lift bg-[#f0ebe3] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#ded7cd] hover:border-[#141312] hover:bg-[#f6f2eb]"
             >
               <div className="my-auto py-2">
                 <img
@@ -92,7 +93,7 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
               </div>
 
               <div className="text-center space-y-0.5">
-                <div className="text-xs font-bold text-[#141312]">Cloud 360° Recliner</div>
+                <div className="text-xs font-bold text-[#141312] group-hover:text-black transition-colors">Cloud 360° Recliner</div>
                 <div className="text-[11px] text-[#6b665f]">Starting from $395.00</div>
               </div>
             </div>
@@ -100,7 +101,7 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
             {/* Tile 3: Pro-Display Sneaker Crates */}
             <div
               onClick={() => onSelectProduct(getProduct("baw-shoes-display-6"))}
-              className="bg-[#f1f0f2] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#dedde1] hover:border-[#141312]/30"
+              className="card-lift bg-[#f1f0f2] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#dedde1] hover:border-[#141312] hover:bg-[#f8f7fa]"
             >
               <div className="my-auto py-2">
                 <img
@@ -111,7 +112,7 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
               </div>
 
               <div className="text-center space-y-0.5">
-                <div className="text-xs font-bold text-[#141312]">Pro-Display Crates</div>
+                <div className="text-xs font-bold text-[#141312] group-hover:text-black transition-colors">Pro-Display Crates</div>
                 <div className="text-[11px] text-[#6b665f]">Starting from $110.00 (6-Pack)</div>
               </div>
             </div>
@@ -119,9 +120,9 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
             {/* Tile 4: BAW Modern Sage Accent Chair */}
             <div
               onClick={() => onSelectProduct(getProduct("baw-sage-chair"))}
-              className="bg-[#e7eef2] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#d3dfe6] hover:border-[#141312]/30"
+              className="card-lift bg-[#e7eef2] p-5 sm:p-6 flex flex-col items-center justify-between cursor-pointer group relative min-h-[220px] sm:min-h-[245px] transition-all border border-[#d3dfe6] hover:border-[#141312] hover:bg-[#eef4f8]"
             >
-              <div className="absolute top-3.5 right-3.5 bg-[#13402e] text-white text-[9px] font-bold uppercase px-2 py-0.5 tracking-wider">
+              <div className="absolute top-3.5 right-3.5 bg-[#13402e] text-white text-[9px] font-bold uppercase px-2 py-0.5 tracking-wider shadow-sm">
                 Trend
               </div>
 
@@ -134,7 +135,7 @@ export function HongoBento({ onSelectProduct }: HongoBentoProps) {
               </div>
 
               <div className="text-center space-y-0.5">
-                <div className="text-xs font-bold text-[#141312]">Nordic Sage Chair</div>
+                <div className="text-xs font-bold text-[#141312] group-hover:text-black transition-colors">Nordic Sage Chair</div>
                 <div className="text-[11px] text-[#6b665f]">Starting from $160.00</div>
               </div>
             </div>

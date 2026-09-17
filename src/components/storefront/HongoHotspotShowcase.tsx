@@ -81,7 +81,7 @@ export function HongoHotspotShowcase({ onSelectProduct }: HongoHotspotShowcasePr
             className="w-full h-auto object-cover max-h-[620px]"
           />
 
-          {/* Hotspot Pins */}
+          {/* Hotspot Pins with rich pulsing and rotation dynamics */}
           {HOTSPOTS.map((pin) => (
             <div
               key={pin.id}
@@ -90,34 +90,40 @@ export function HongoHotspotShowcase({ onSelectProduct }: HongoHotspotShowcasePr
             >
               <button
                 onClick={() => setActivePin(activePin?.id === pin.id ? null : pin)}
-                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white text-[#141312] shadow-xl flex items-center justify-center font-bold text-xs hover:scale-110 transition-transform hotspot-pin border border-[#e7e4dc] cursor-pointer"
+                className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white text-[#141312] shadow-xl flex items-center justify-center font-bold text-xs hover:scale-125 transition-transform duration-300 hotspot-pin border border-[#e7e4dc] cursor-pointer group/pin"
                 title={`View ${pin.title}`}
                 aria-label={`Hotspot for ${pin.title}`}
               >
-                {activePin?.id === pin.id ? <X className="w-3.5 h-3.5" /> : <Plus className="w-4 h-4" />}
+                <span className={`inline-block transition-transform duration-300 ${
+                  activePin?.id === pin.id ? "rotate-90" : "group-hover/pin:rotate-45"
+                }`}>
+                  {activePin?.id === pin.id ? <X className="w-3.5 h-3.5" /> : <Plus className="w-4 h-4" />}
+                </span>
               </button>
 
               {/* Popover Product Card with smart boundary handling for mobile */}
               {activePin?.id === pin.id && (
                 <div
                   onClick={() => onSelectProduct(getProduct(pin.productId))}
-                  className={`absolute bottom-full mb-3 w-52 sm:w-60 p-3 bg-white text-[#141312] shadow-2xl border border-[#e7e4dc] z-30 cursor-pointer animate-in fade-in zoom-in-95 duration-200 ${
+                  className={`card-lift group/popover absolute bottom-full mb-3 w-52 sm:w-60 p-3 bg-white text-[#141312] shadow-2xl border border-[#e7e4dc] hover:border-[#141312] z-30 cursor-pointer animate-in fade-in zoom-in-95 duration-200 ${
                     pin.x > 60
                       ? "right-0 -translate-x-4 sm:left-1/2 sm:-translate-x-1/2"
                       : "left-0 translate-x-4 sm:left-1/2 sm:-translate-x-1/2"
                   }`}
                 >
                   <div className="flex gap-2.5 items-center">
-                    <img
-                      src={pin.image}
-                      alt={pin.title}
-                      className="w-12 h-12 object-contain bg-[#f8f6f0] border border-[#e7e4dc] flex-shrink-0"
-                    />
+                    <div className="w-12 h-12 overflow-hidden bg-[#f8f6f0] border border-[#e7e4dc] flex-shrink-0 flex items-center justify-center">
+                      <img
+                        src={pin.image}
+                        alt={pin.title}
+                        className="w-full h-full object-contain transition-transform duration-300 group-hover/popover:scale-110"
+                      />
+                    </div>
                     <div className="min-w-0 text-left">
                       <div className="text-[10px] text-[#8c867e] uppercase font-semibold">
                         {pin.category}
                       </div>
-                      <div className="text-xs font-bold text-[#141312] truncate">
+                      <div className="text-xs font-bold text-[#141312] truncate group-hover/popover:text-black">
                         {pin.title}
                       </div>
                       <div className="font-serif-luxury text-xs font-bold text-[#141312]">
@@ -127,7 +133,7 @@ export function HongoHotspotShowcase({ onSelectProduct }: HongoHotspotShowcasePr
                   </div>
                   <div className="mt-2 pt-2 border-t border-[#e7e4dc] text-[10px] font-bold text-[#141312] uppercase tracking-wider flex items-center justify-between">
                     <span>Explore Piece</span>
-                    <ArrowRight className="w-3 h-3" />
+                    <ArrowRight className="w-3 h-3 transition-transform duration-200 group-hover/popover:translate-x-1" />
                   </div>
                 </div>
               )}

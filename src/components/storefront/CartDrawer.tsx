@@ -260,15 +260,18 @@ export function CartDrawer({
                 {shippingPercentage}%
               </span>
             </div>
-            <div className="w-full h-1.5 bg-[#e7e4dc] rounded-full overflow-hidden">
+            <div className="w-full h-1.5 bg-[#e7e4dc] rounded-full overflow-hidden relative">
               <div
-                className={`h-full transition-all duration-500 rounded-full ${
+                className={`h-full transition-all duration-500 rounded-full relative overflow-hidden ${
                   isFreeShipping
                     ? "bg-[#13402e]"
                     : "bg-gradient-to-r from-[#b89558] to-[#13402e]"
                 }`}
                 style={{ width: `${shippingPercentage}%` }}
-              />
+              >
+                {/* Subtle moving shimmer light */}
+                <div className="absolute inset-0 shimmer-badge opacity-60 pointer-events-none" />
+              </div>
             </div>
           </div>
         )}
@@ -595,14 +598,14 @@ export function CartDrawer({
                 return (
                   <div
                     key={item.id ? `${item.id}-${idx}` : idx}
-                    className="p-3.5 rounded-2xl border border-[#e7e4dc] bg-white shadow-sm flex gap-3.5 transition-all hover:border-stone-300"
+                    className="card-lift p-3.5 rounded-2xl border border-[#e7e4dc] bg-white shadow-sm flex gap-3.5 transition-all hover:border-[#141312]/50 hover:shadow-md"
                   >
                     {/* Item Thumbnail */}
-                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-[#f4f2eb] border border-[#e7e4dc] flex-shrink-0 relative">
+                    <div className="w-20 h-20 rounded-xl overflow-hidden bg-[#f4f2eb] border border-[#e7e4dc] flex-shrink-0 relative group">
                       <img
                         src={item.images?.[0] || "/images/cabinet-main.jpg"}
                         alt={item.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                       />
                     </div>
 
@@ -615,7 +618,7 @@ export function CartDrawer({
                           </h4>
                           <button
                             onClick={() => onRemoveItem(idx)}
-                            className="text-stone-400 hover:text-rose-600 p-1 -mr-1 transition-colors"
+                            className="btn-press text-stone-400 hover:text-rose-600 p-1 -mr-1 hover:scale-110 active:scale-90 transition-all"
                             aria-label={`Remove ${item.title}`}
                           >
                             <Trash2 className="w-3.5 h-3.5" />
@@ -643,11 +646,11 @@ export function CartDrawer({
                       {/* Price & Quantity Controls */}
                       <div className="flex items-center justify-between pt-2.5 mt-1 border-t border-[#f0eee6]">
                         {/* Tactile Steppers */}
-                        <div className="flex items-center border border-[#e7e4dc] rounded-lg bg-[#faf9f5] overflow-hidden">
+                        <div className="flex items-center border border-[#e7e4dc] rounded-lg bg-[#faf9f5] overflow-hidden shadow-xs">
                           <button
                             type="button"
                             onClick={() => onUpdateQuantity(idx, -1)}
-                            className="w-7 h-7 flex items-center justify-center text-stone-600 hover:bg-stone-200/70 hover:text-stone-900 transition-colors"
+                            className="btn-press w-7 h-7 flex items-center justify-center text-stone-600 hover:bg-[#141312] hover:text-white transition-colors"
                             aria-label="Decrease quantity"
                           >
                             <Minus className="w-3 h-3" />
@@ -658,7 +661,7 @@ export function CartDrawer({
                           <button
                             type="button"
                             onClick={() => onUpdateQuantity(idx, 1)}
-                            className="w-7 h-7 flex items-center justify-center text-stone-600 hover:bg-stone-200/70 hover:text-stone-900 transition-colors"
+                            className="btn-press w-7 h-7 flex items-center justify-center text-stone-600 hover:bg-[#141312] hover:text-white transition-colors"
                             aria-label="Increase quantity"
                           >
                             <Plus className="w-3 h-3" />
@@ -816,13 +819,13 @@ export function CartDrawer({
                     {CURATED_ADDITIONS.map((addon) => (
                       <div
                         key={addon.id}
-                        className="flex items-center justify-between p-2.5 rounded-xl border border-[#e7e4dc] bg-white hover:border-stone-300 transition-colors"
+                        className="card-lift flex items-center justify-between p-2.5 rounded-xl border border-[#e7e4dc] bg-white hover:border-[#141312] hover:shadow-sm transition-all duration-200"
                       >
                         <div className="flex items-center gap-2.5 min-w-0">
                           <img
                             src={addon.images[0]}
                             alt={addon.title}
-                            className="w-11 h-11 rounded-lg object-cover bg-[#f4f2eb] border border-[#e7e4dc] flex-shrink-0"
+                            className="w-11 h-11 rounded-lg object-cover bg-[#f4f2eb] border border-[#e7e4dc] flex-shrink-0 transition-transform duration-300 hover:scale-105"
                           />
                           <div className="min-w-0">
                             <div className="text-xs font-semibold text-stone-900 truncate">
@@ -852,7 +855,7 @@ export function CartDrawer({
                               isCOD: true,
                             })
                           }
-                          className="h-7 px-2.5 text-[11px] bg-[#faf9f5] hover:bg-[#141312] hover:text-white text-stone-800 border border-[#e7e4dc] rounded-lg font-semibold transition-colors flex-shrink-0"
+                          className="btn-press h-7 px-3 text-[11px] bg-[#faf9f5] hover:bg-[#141312] hover:text-white text-stone-800 border border-[#e7e4dc] rounded-lg font-semibold transition-all hover:scale-105 active:scale-95 flex-shrink-0 cursor-pointer"
                         >
                           + Add
                         </Button>
@@ -908,9 +911,9 @@ export function CartDrawer({
                   setIsCheckingOut(true);
                   setCheckoutStep("form");
                 }}
-                className="w-full h-12 bg-[#13402e] hover:bg-[#0e2d20] text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-md text-sm transition-all"
+                className="btn-press group relative overflow-hidden w-full h-12 bg-[#13402e] hover:bg-[#0e2d20] text-white rounded-xl font-bold flex items-center justify-center gap-2 shadow-md hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0 text-sm transition-all duration-300 cursor-pointer"
               >
-                <Banknote className="w-4 h-4" />
+                <Banknote className="w-4 h-4 transition-transform duration-300 group-hover:scale-110" />
                 <span>Pay Cash on Delivery (COD) • ${finalTotal}</span>
               </Button>
 
@@ -922,7 +925,7 @@ export function CartDrawer({
                   setIsCheckingOut(true);
                   setCheckoutStep("form");
                 }}
-                className="w-full h-10 rounded-xl border-[#e7e4dc] bg-white hover:bg-stone-100 text-xs font-semibold text-stone-700"
+                className="btn-press w-full h-10 rounded-xl border-[#e7e4dc] bg-white hover:bg-stone-100 hover:border-stone-400 text-xs font-semibold text-stone-700 transition-all cursor-pointer"
               >
                 Request Card / Apple Pay Mobile Terminal
               </Button>

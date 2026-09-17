@@ -48,8 +48,8 @@ export function HongoArticles() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {ARTICLES.map((article) => (
-            <article key={article.id} className="group cursor-pointer space-y-3 text-left">
-              <div className="relative aspect-[4/3] bg-[#f4f1ea] border border-[#e7e4dc] overflow-hidden">
+            <article key={article.id} className="card-lift group cursor-pointer space-y-3 text-left p-1">
+              <div className="relative aspect-[4/3] bg-[#f4f1ea] border border-[#e7e4dc] group-hover:border-[#141312] group-hover:shadow-md overflow-hidden transition-all duration-300">
                 <img
                   src={article.image}
                   alt={article.title}
@@ -61,11 +61,12 @@ export function HongoArticles() {
                 <div className="text-[10px] font-bold uppercase tracking-wider text-[#8c867e]">
                   {article.category}
                 </div>
-                <h3 className="font-serif-luxury text-sm sm:text-base font-bold text-[#141312] leading-snug group-hover:text-[#6b665f] transition-colors line-clamp-2">
+                <h3 className="font-serif-luxury text-sm sm:text-base font-bold text-[#141312] leading-snug group-hover:text-black transition-colors line-clamp-2">
                   {article.title}
                 </h3>
-                <div className="text-[11px] text-[#8c867e]">
-                  {article.author}
+                <div className="text-[11px] text-[#8c867e] flex items-center justify-between">
+                  <span>{article.author}</span>
+                  <span className="text-[#141312] text-xs opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300 font-bold">&rarr;</span>
                 </div>
               </div>
             </article>

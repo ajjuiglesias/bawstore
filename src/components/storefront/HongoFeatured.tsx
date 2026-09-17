@@ -76,12 +76,12 @@ export function HongoFeatured({ onSelectProduct, onAddToCart }: HongoFeaturedPro
               <div
                 key={item.id}
                 onClick={() => onSelectProduct(matchedProduct)}
-                className="group flex flex-col items-center text-center cursor-pointer"
+                className="card-lift group flex flex-col items-center text-center cursor-pointer p-1"
               >
-                <div className="w-full aspect-square bg-[#f4f1ea] relative overflow-hidden flex items-center justify-center p-3 sm:p-5 border border-[#e7e4dc] transition-all duration-300 group-hover:border-[#141312]">
+                <div className="w-full aspect-square bg-[#f4f1ea] relative overflow-hidden flex items-center justify-center p-3 sm:p-5 border border-[#e7e4dc] transition-all duration-300 group-hover:border-[#141312] group-hover:shadow-md">
                   {item.badge && (
                     <span
-                      className={`absolute top-2 left-2 ${item.badgeColor} text-white text-[9px] font-bold uppercase px-2 py-0.5 tracking-wider`}
+                      className={`absolute top-2 left-2 ${item.badgeColor} text-white text-[9px] font-bold uppercase px-2 py-0.5 tracking-wider shadow-sm z-10`}
                     >
                       {item.badge}
                     </span>
@@ -93,8 +93,8 @@ export function HongoFeatured({ onSelectProduct, onAddToCart }: HongoFeaturedPro
                     className="w-full h-full object-contain mix-blend-multiply hover-zoom-img"
                   />
 
-                  {/* Hover actions */}
-                  <div className="absolute inset-x-0 bottom-0 p-2 bg-white/95 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-3 border-t border-[#e7e4dc]">
+                  {/* Hover Quick Actions with Slide-Up Entrance */}
+                  <div className="absolute inset-x-0 bottom-0 p-2.5 bg-white/95 backdrop-blur-md translate-y-3 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 ease-out flex items-center justify-center gap-2.5 border-t border-[#e7e4dc] z-20">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -105,22 +105,29 @@ export function HongoFeatured({ onSelectProduct, onAddToCart }: HongoFeaturedPro
                           images: [item.image],
                         });
                       }}
-                      className="p-1.5 hover:text-[#141312] text-[#6b665f] transition-colors"
+                      className="btn-press w-8 h-8 rounded-full flex items-center justify-center bg-[#f2eee7] hover:bg-[#141312] hover:text-white text-[#57534e] hover:scale-110 active:scale-95 transition-all shadow-sm cursor-pointer"
                       title="Add to cart"
                     >
-                      <ShoppingBag className="w-4 h-4" />
+                      <ShoppingBag className="w-3.5 h-3.5" />
                     </button>
                     <button
-                      className="p-1.5 hover:text-[#141312] text-[#6b665f] transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct(matchedProduct);
+                      }}
+                      className="btn-press w-8 h-8 rounded-full flex items-center justify-center bg-[#f2eee7] hover:bg-[#141312] hover:text-white text-[#57534e] hover:scale-110 active:scale-95 transition-all shadow-sm cursor-pointer"
                       title="Quick view"
                     >
-                      <Eye className="w-4 h-4" />
+                      <Eye className="w-3.5 h-3.5" />
                     </button>
                     <button
-                      className="p-1.5 hover:text-[#141312] text-[#6b665f] transition-colors"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                      }}
+                      className="btn-press w-8 h-8 rounded-full flex items-center justify-center bg-[#f2eee7] hover:bg-[#141312] hover:text-white text-[#57534e] hover:scale-110 active:scale-95 transition-all shadow-sm cursor-pointer group/btn"
                       title="Wishlist"
                     >
-                      <Heart className="w-4 h-4" />
+                      <Heart className="w-3.5 h-3.5 group-hover/btn:text-[#ef4444] transition-colors" />
                     </button>
                   </div>
                 </div>
